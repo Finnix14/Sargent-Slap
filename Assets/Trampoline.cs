@@ -5,6 +5,7 @@ using UnityEngine;
 public class Trampoline : MonoBehaviour
 {
     [SerializeField] string playerTag;
+    [SerializeField] string bombTag;
     [SerializeField] float bounceForce;
 
     public Animator anim;
@@ -17,7 +18,7 @@ public class Trampoline : MonoBehaviour
     // Update is called once per frame
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.transform.tag == playerTag)
+        if(collision.transform.tag == playerTag || collision.transform.tag == bombTag)
         {
             anim.SetTrigger("Bounce");
             bounceClouds.Play();
